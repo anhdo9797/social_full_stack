@@ -1,0 +1,6 @@
+{
+  "login_success": "Login success fully",
+  "login_fail": "Login fail",
+  "register_success": "Register success fully",
+  "register_fail": "Register fail"
+}

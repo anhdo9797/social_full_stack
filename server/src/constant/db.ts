@@ -1,0 +1,7 @@
+export const USER_TABLE = 'User'
+export const POST_TABLE = 'Post'
+export const COMMENT_TABLE = 'Comment'
+export const MENTION_TABLE = 'Mention'
+export const LIKE_TABLE = 'Like'
+export const FOLLOW_TABLE = 'Follow'
+export const REACTION_TABLE = 'Reaction'
