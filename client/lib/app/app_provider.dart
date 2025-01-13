@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AppState {
@@ -28,6 +29,9 @@ class AppState {
 
 class AppProvider extends StateNotifier<AppState> {
   AppProvider() : super(AppState());
+
+  final navigationKey = GlobalKey<NavigatorState>();
+  final scaffoldMessengerState = GlobalKey<ScaffoldMessengerState>();
 
   void didChangeAppLifecycleState(AppLifecycleState appState) {
     state = state.copyWith(appLifecycleState: appState);

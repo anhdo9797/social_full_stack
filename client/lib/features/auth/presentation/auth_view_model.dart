@@ -20,6 +20,8 @@ class AuthViewModel extends BaseNotifier<AuthState> {
     setLoading(true);
     await Future.delayed(const Duration(seconds: 2));
     setLoading(false);
+
+    showError("Log in failed");
   }
 
   Future<void> signOut() async {}

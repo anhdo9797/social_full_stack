@@ -24,6 +24,9 @@ class _AppState extends ConsumerState with WidgetsBindingObserver {
       routerConfig: AppRoutes.router,
       title: "Social network",
       debugShowCheckedModeBanner: true,
+      key: ref.read(appProvider.notifier).navigationKey,
+      scaffoldMessengerKey:
+          ref.read(appProvider.notifier).scaffoldMessengerState,
       theme: ThemeData.light().copyWith(
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFFF57D00),
