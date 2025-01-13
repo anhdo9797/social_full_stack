@@ -35,4 +35,27 @@ abstract class BaseNotifier<T> extends StateNotifier<T> {
       }
     });
   }
+
+  void showMessage(String message) {
+    final context = _appState.navigationKey.currentContext;
+    final colorScheme = Theme.of(context!).colorScheme;
+
+    final snackBar = SnackBar(
+      content: Text(
+        message,
+        style: TextStyle(color: colorScheme.onError),
+      ),
+      duration: const Duration(seconds: 3),
+      backgroundColor: colorScheme.primary,
+    );
+
+    _appState.scaffoldMessengerState.currentState
+        ?.showSnackBar(snackBar)
+        .closed
+        .then((reason) {
+      if (reason == SnackBarClosedReason.timeout) {
+        print('SnackBar is closed by timeout');
+      }
+    });
+  }
 }

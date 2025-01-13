@@ -16,8 +16,10 @@ class AuthState {
 class AuthViewModel extends BaseNotifier<AuthState> {
   AuthViewModel(Ref ref) : super(ref, AuthState());
 
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final emailController = TextEditingController(
+    text: "NVA@gmail.com",
+  );
+  final passwordController = TextEditingController(text: "123Aa!");
 
   Future<void> signIn() async {
     setLoading(true);
@@ -27,6 +29,7 @@ class AuthViewModel extends BaseNotifier<AuthState> {
             passwordController.text,
           );
       if (response.success) {
+        showMessage(response.message ?? '');
       } else {
         showError(response.message ?? '');
       }
