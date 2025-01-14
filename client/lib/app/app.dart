@@ -21,7 +21,7 @@ class _AppState extends ConsumerState with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: AppRoutes.router,
+      routerConfig: ref.watch(appRouterProvider),
       title: "Social network",
       debugShowCheckedModeBanner: true,
       key: ref.read(appProvider.notifier).navigationKey,

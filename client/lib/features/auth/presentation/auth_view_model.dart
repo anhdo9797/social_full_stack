@@ -3,7 +3,9 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:social/app/base_notifier.dart';
+import 'package:social/data/local/storage.dart';
 import 'package:social/features/auth/data/auth_repository.dart';
+import 'package:social/routes/app_routes.dart';
 
 class AuthState {
   AuthState();
@@ -30,11 +32,14 @@ class AuthViewModel extends BaseNotifier<AuthState> {
           );
       if (response.success) {
         showMessage(response.message ?? '');
+        Storage.token = response.data?.accessToken;
+
+        ref.read(appRouterProvider).goNamed("Home");
       } else {
         showError(response.message ?? '');
       }
     } catch (e) {
-      log("login failed: " + e.toString(), name: "Login controller");
+      log("login failed: $e", name: "Login controller");
       showError("Log in failed");
     } finally {
       setLoading(false);

@@ -8,7 +8,7 @@ export const generateToken = async (User: IUser): Promise<string> => {
   if (!secret) {
     throw new Error('JWT_SECRET is not defined')
   }
-  const token = jwt.sign({ id: User.id }, secret, { expiresIn: '1h' })
+  const token = jwt.sign({ id: User.id }, secret, { expiresIn: '720h' })
   return token
 }
 

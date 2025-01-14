@@ -21,8 +21,8 @@ class App {
     this.server = createServer(this.app)
     this.io = new Server(this.server, {
       cors: {
-        origin: '*',
-        methods: ['GET', 'POST'],
+        methods: ['GET', 'PATCH', 'POST', 'PUT'],
+        origin: true,
       },
     })
     this.PORT = process.env.PORT || 8386
